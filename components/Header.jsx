@@ -30,6 +30,7 @@ const Header = () => {
           <MobileNav />
         </div>
       </div>
+      <div className="w-full h-[1px] bg-yellow-500 mt-4"></div>
     </header>
   );
 };

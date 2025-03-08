@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
 import Image from "next/image";
+import { Button } from "@/components/ui/button"; // Import Button component
 
 const links = [
   {
@@ -33,24 +34,24 @@ const MobileNav = () => {
   const pathname = usePathname();
   return (
     <Sheet>
-      <SheetTrigger className="Flex justify-center items-center">
+      <SheetTrigger className="flex justify-center items-center">
         <CiMenuFries className="text-[32px] text-accent" />
       </SheetTrigger>
       <SheetContent className="flex flex-col justify-center items-center h-full">
-        <div className="mt-32 text-center text-2xl">
+        <div className="mt-31 text-center text-2xl">
           <Link href="/">
             <Image
-              src="/assets/gift-logo.png" // Adjust the path if needed
+              src="/assets/gift-logo.png"
               alt="Gift Logo"
-              width={120} // Adjust width as needed
-              height={40} // Adjust height as needed
-              priority // Ensures faster loading
+              width={120}
+              height={40}
+              priority
             />
           </Link>
         </div>
 
-        {/* Add flex-grow here to push content to center */}
-        <nav className="flex flex-col justify-center items-center gap-8 flex-grow">
+        {/* Navigation Links */}
+        <nav className="flex flex-col justify-center items-center gap-5 flex-grow">
           {links.map((link, index) => (
             <Link
               href={link.path}
@@ -64,7 +65,10 @@ const MobileNav = () => {
           ))}
         </nav>
 
-        {/* Add some margin-bottom */}
+        {/* Hire Me Button */}
+        <Link href="/contact">
+          <Button className="mb-8">Hire Me</Button>
+        </Link>
       </SheetContent>
     </Sheet>
   );

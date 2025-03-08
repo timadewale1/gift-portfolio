@@ -6,91 +6,125 @@ import { motion } from "framer-motion";
 const services = [
   {
     num: "01",
-    title: "being Timi's Friend",
+    title: "Virtual/administrative support",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, odit voluptatem.",
+      "Seamlessly managing your emails, calendars, travel arrangements, organizing files, and daily operations, ensuring you stay on top of your priorities",
     href: "",
   },
   {
     num: "02",
-    title: "being Timi's Friend",
+    title: "Research & Writing",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, odit voluptatem.",
+      "Conducting thorough research, writing reports,  data entry, creating presentations, and crafting compelling storytelling and content.",
     href: "",
   },
   {
     num: "03",
-    title: "being Timi's Friend",
+    title: "Customer Service Support",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, odit voluptatem.",
+      "Ensuring your clients receive top-notch service through email, chat, and follow-ups",
     href: "",
   },
   {
     num: "04",
-    title: "being Timi's Friend",
+    title: "Project Management",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, odit voluptatem.",
+      "Coordinating tasks, tracking deadlines, and ensuring seamless execution of your projects.",
+    href: "",
+  },
+  {
+    num: "05",
+    title: "Email Marketing Support",
+    description:
+      "Setting up email campaigns, newsletter creation, list management, and automation (MailChimp, ConvertKit, Klaviyo, etc.).",
+    href: "",
+  },
+  {
+    num: "06",
+    title: "Knowledge Management and IT Support",
+    description: [
+      "Managing email seats, user accounts, and access control.",
+      "Overseeing web hosting, domain management, and troubleshooting website-related issues.",
+      "Organizing company documents, knowledge bases, and shared drives for seamless collaboration.",
+      "Ensuring data security, backups, and compliance with digital best practices.",
+    ],
     href: "",
   },
 ];
 
 const Services = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-[#0A1931] to-black">
-      <div className="container mx-auto px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-left text-accent mb-10"
-        >
-          What I do
-        </motion.h1>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6, ease: "easeOut" },
-          }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12"
-        >
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.03 }}
-              className="flex flex-col gap-6 p-6 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-lg transition-all duration-500 group"
-            >
-              {/* Top Section */}
-              <div className="flex justify-between items-center">
-                <span className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-white group-hover:from-white group-hover:to-yellow-400 transition-all duration-500">
-                  {service.num}
-                </span>
-                <Link
-                  href={service.href}
-                  className="w-16 h-16 rounded-full bg-white group-hover:bg-yellow-400 transition-all duration-500 flex justify-center items-center hover:rotate-45 shadow-lg"
-                >
-                  <BsArrowDownRight className="text-black text-3xl" />
-                </Link>
-              </div>
+    <>
+      <section className="min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-[#0A1931] to-black">
+        <div className="container mx-auto px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl font-bold text-left text-accent mb-8"
+          >
+            How I Can Support You!
+          </motion.h1>
+          <p className="text-white/70 leading-relaxed mb-8">
+            I help busy professionals, entrepreneurs, and businesses stay
+            organized, efficient, and ahead of their goals. With my expertise in
+            virtual assistance, I take care of the details so you can focus on
+            what truly matters—growing your career or business.
+          </p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.6, ease: "easeOut" },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          >
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.03 }}
+                className="flex flex-col gap-6 p-6 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-lg transition-all duration-500 group"
+              >
+                {/* Top Section */}
+                <div className="flex justify-between items-center">
+                  <span className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-white group-hover:from-white group-hover:to-yellow-400 transition-all duration-500">
+                    {service.num}
+                  </span>
+                  <Link
+                    href={service.href}
+                    className="w-16 h-16 rounded-full bg-white group-hover:bg-yellow-400 transition-all duration-500 flex justify-center items-center hover:rotate-45 shadow-lg"
+                  >
+                    <BsArrowDownRight className="text-black text-3xl" />
+                  </Link>
+                </div>
 
-              {/* Title */}
-              <h2 className="text-[40px] font-bold text-white group-hover:text-yellow-400 transition-all duration-500">
-                {service.title}
-              </h2>
+                {/* Title */}
+                <h2 className="text-[25px] font-bold text-white group-hover:text-yellow-400 transition-all duration-500">
+                  {service.title}
+                </h2>
 
-              {/* Description */}
-              <p className="text-white/70 leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* Divider */}
-              <div className="border-b border-white/20 w-full"></div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+                {/* Description */}
+                {Array.isArray(service.description) ? (
+                  <ul className="text-white/70 leading-relaxed list-disc pl-5">
+                    {service.description.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-white/70 leading-relaxed">
+                    {service.description}
+                  </p>
+                )}
+                {/* Divider */}
+                <div className="border-b border-white/20 w-full"></div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+      <div className="w-full h-[1px] bg-yellow-500"></div>
+    </>
   );
 };
 
