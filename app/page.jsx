@@ -137,7 +137,7 @@ const Home = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="mt-5"
+          className="mt-10"
         >
           <Component />
         </motion.div>
