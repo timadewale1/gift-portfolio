@@ -3,6 +3,8 @@ import { BsArrowDownRight } from "react-icons/bs";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiArrowUp } from "react-icons/fi";
+import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 
 const services = [
   {
@@ -10,35 +12,35 @@ const services = [
     title: "Virtual/administrative support",
     description:
       "Seamlessly managing your emails, calendars, travel arrangements, organizing files, and daily operations, ensuring you stay on top of your priorities",
-    href: "",
+    path: "/projects/virtual-assistance",
   },
   {
     num: "02",
     title: "Research & Writing",
     description:
       "Conducting thorough research, writing reports,  data entry, creating presentations, and crafting compelling storytelling and content.",
-    href: "",
+    path: "/research",
   },
   {
     num: "03",
     title: "Customer Service Support",
     description:
       "Ensuring your clients receive top-notch service through email, chat, and follow-ups",
-    href: "",
+    path: "/projects/virtual-assistance",
   },
   {
     num: "04",
     title: "Project Management",
     description:
       "Coordinating tasks, tracking deadlines, and ensuring seamless execution of your projects.",
-    href: "",
+    path: "/projects/virtual-assistance",
   },
   {
     num: "05",
-    title: "Email Marketing Support",
+    title: "Invoice/memo preparation/financial tracking and data analaysis",
     description:
-      "Setting up email campaigns, newsletter creation, list management, and automation (MailChimp, ConvertKit, Klaviyo, etc.).",
-    href: "",
+      "Invoice creation, memo preparation, financial tracking, and data analysis.",
+    path: "/projects/virtual-assistance",
   },
   {
     num: "06",
@@ -49,11 +51,13 @@ const services = [
       "Organizing company documents, knowledge bases, and shared drives for seamless collaboration.",
       "Ensuring data security, backups, and compliance with digital best practices.",
     ],
-    href: "",
+    path: "/projects/virtual-assistance",
   },
 ];
 
 const Services = () => {
+  const pathname = usePathname();
+
   return (
     <>
       <section className="min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-[#0A1931] to-black">
@@ -62,7 +66,7 @@ const Services = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl font-bold text-left text-accent mb-8"
+            className="text-4xl font-bold text-left text-accent mb-5"
           >
             How I Can Support You!
           </motion.h1>
@@ -93,10 +97,11 @@ const Services = () => {
                     {service.num}
                   </span>
                   <Link
-                    href={service.href}
+                    href={service.path}
+                    target="_blank"
                     className="w-16 h-16 rounded-full bg-white group-hover:bg-yellow-400 transition-all duration-500 flex justify-center items-center hover:rotate-45 shadow-lg"
                   >
-                    <BsArrowDownRight className="text-black text-3xl" />
+                    <Button>View</Button>
                   </Link>
                 </div>
 

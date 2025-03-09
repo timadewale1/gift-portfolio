@@ -7,6 +7,8 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { usePathname } from "next/navigation";
+
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 
 import {
@@ -19,6 +21,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
@@ -33,8 +36,7 @@ const projects = [
       { name: "Travel Arrangements" },
     ],
     image: "/assets/work/work2.jpg",
-    live: "",
-    github: "",
+    path: "/projects/virtual-assistance",
   },
   {
     num: "02",
@@ -49,33 +51,13 @@ const projects = [
       { name: "Discussion papers" },
     ],
     image: "/assets/work/work1.jpg",
-    live: [
-      {
-        name: "Empowering Women in Administration",
-        url:
-          "https://cleantechhub.medium.com/empowering-women-in-administration-driving-sustainable-corporate-social-responsibility-1c99f8e7dd81",
-      },
-      {
-        name: "Green Technology and Youth Employment",
-        url:
-          "https://afripoli.org/green-technology-and-youth-employment-in-africa-a-transformative-opportunity",
-      },
-      {
-        name: "CTH Policy Brief - Strengthening Sustainability",
-        url:
-          "https://cleantechnologyhub.com/wp-content/uploads/2024/11/CTH-Policy-Brief-Strenghten-Sustainability.pdf",
-      },
-      {
-        name: "Sustainability Report 2024",
-        url:
-          "https://drive.google.com/file/d/1nBKZ-Qz3lSjE14HJayAh1nOan96Z7uQ/view?usp=sharing",
-      },
-    ],
-    github: "",
+    path: "/research",
   },
 ];
 
 const Work = () => {
+  const pathname = usePathname();
+
   const [project, setProject] = useState(projects[0]);
 
   const handleSlideChange = (swiper) => {
@@ -123,22 +105,16 @@ const Work = () => {
                 </ul>
                 <div className="border border-white/40"></div>
                 <div className="flex items-center gap-4">
-                  {project.live &&
-                    project.live.map((report, index) => (
-                      <Link key={index} href={report.url} target="_blank">
-                        <TooltipProvider delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group transition-all hover:bg-white/10">
-                              <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>{report.name}</p>{" "}
-                              {/* Display the report name here */}
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </Link>
-                    ))}
+                  <Link href={project.path}>
+                    <Button
+                      className={`${
+                        pathname === project.path &&
+                        "bg-accent text-white border-accent"
+                      }`}
+                    >
+                      Check More
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

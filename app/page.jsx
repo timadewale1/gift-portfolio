@@ -50,12 +50,10 @@ const Home = () => {
             <span className="text-xl text-accent">
               <Typewriter
                 words={[
-                  "Timi's Friend",
-                  "Gender Researcher",
                   "Executive Administrative Support",
-                  "International Development Enthusiast",
-                  "Writer & Thought Leader",
-                  "Creative Thinker",
+                  "Virtual Assistance",
+                  "Writer/Researcher/Thought Leader",
+                  "Creative/Analytical Thinker",
                 ]}
                 loop={true}
                 cursor
@@ -69,19 +67,35 @@ const Home = () => {
               Hello, I&apos;m
               <span className="text-accent ml-5">Gift</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">
-              Being a C-level Executive Assistant is like being the office
-              superhero—everyone needs saving, but no one wants to wear the
-              cape! I thrive on organization, turning chaos into order with
-              color-coded calendars and perfectly timed coffee breaks. <br />
-              Beyond the desk, I’m a detective of gender roles, history, and
-              economic shifts in Nigeria—solving real-world puzzles with a
-              passion for research, gender equality, and sustainability. <br />
-              Let’s connect and see how my mix of office wizardry and
-              investigative skills can bring efficiency (and maybe a little
-              humor) to our shared goals!
+            <p className="max-w-[500px] mb-3 text-white/80">
+              With nearly five years of experience, I keep operations seamless
+              by managing schedules, streamlining communication, and optimising
+              workflows so nothing falls through the cracks. From inbox
+              management to high-level coordination, I handle it all with
+              precision.{" "}
             </p>
-
+            <p className="max-w-[500px] mb-5 text-white/80">
+              Beyond administrative work, I bring expertise in financial
+              tracking, IT management, research, and sustainability, helping
+              businesses remain efficient and strategic.
+            </p>
+            <p className="max-w-[500px] mb-9 text-accent font-bold">
+              Need an efficient, resourceful, and impact-driven professional to
+              elevate your business? Let’s connect!
+            </p>
+            <a
+              href="/contact"
+              className="flex flex-col xl:flex-row items-center mb-8"
+            >
+              <Button
+                variant="outline"
+                size="lg"
+                className="uppercase flex items-center gap-2 border-accent text-accent hover:bg-accent hover:text-primary transition-all duration-500"
+              >
+                <span>Hire Me</span>
+                <BiLink className="text-xl" />
+              </Button>
+            </a>
             {/* Buttons */}
             <div className="flex flex-col xl:flex-row items-center gap-6">
               <a href="/assets/Gift_Nwamadu_CV.pdf" download>
@@ -104,19 +118,6 @@ const Home = () => {
               </div>
             </div>
             <div className="mt-3 flex flex-col xl:flex-row items-center"></div>
-            <a
-              href="/contact"
-              className="flex flex-col xl:flex-row items-center mb-8"
-            >
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2 border-accent text-accent hover:bg-accent hover:text-primary transition-all duration-500"
-              >
-                <span>Let&apos;s Connect</span>
-                <BiLink className="text-xl" />
-              </Button>
-            </a>
           </div>
 
           {/* Right Content - Profile Photo */}

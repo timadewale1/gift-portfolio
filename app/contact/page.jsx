@@ -12,25 +12,51 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkedAlt,
+  FaCheckCircle,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const info = [
   {
     icon: <FaPhoneAlt />,
     title: "Phone",
-    description: "123456789",
+    description: (
+      <a
+        href="tel:+2348081393230"
+        className="text-white-400 hover:text-accent-hover underline"
+      >
+        +2348081393230
+      </a>
+    ),
   },
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "ogunmepon@gmail.com",
+    description: (
+      <a
+        href="mailto:nwamadugift12@gmail.com"
+        className="text-white-400 hover:text-accent-hover underline"
+      >
+        nwamadugift12@gmail.com
+      </a>
+    ),
   },
   {
     icon: <FaMapMarkedAlt />,
     title: "Address",
-    description: "Here, there, and everywhere",
+    description: "Nigeria",
   },
+];
+
+const benefits = [
+  "Time-Saving – I handle the admin, so you don’t have to.",
+  "Attention to Detail – Every task is completed with precision.",
+  "Seamless Communication – Quick responses & proactive updates.",
+  "Discretion & Confidentiality – Your information stays secure.",
 ];
 
 const Contact = () => {
@@ -49,10 +75,14 @@ const Contact = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-left text-accent mb-10"
+          className="text-4xl font-bold text-left text-accent mb-4"
         >
           Contact Me
         </motion.h1>
+        <p className="text-lg text-white/80 mb-10">
+          Ready to make your operations stress-free? Let’s talk!
+        </p>
+
         <div className="flex flex-col xl:flex-row gap-10">
           {/* Contact Form */}
           <div className="xl:w-[54%] order-2 xl:order-none bg-[#222831] p-10 rounded-lg shadow-lg">
@@ -114,8 +144,8 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Information */}
-          <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none">
+          {/* Contact Information & Benefits */}
+          <div className="flex-1 flex flex-col items-start order-1 xl:order-none gap-6">
             <ul className="flex flex-col gap-8">
               {info.map((item, index) => (
                 <motion.li
@@ -134,6 +164,14 @@ const Contact = () => {
                     </h3>
                   </div>
                 </motion.li>
+              ))}
+            </ul>
+            <ul className="mt-10 space-y-4">
+              {benefits.map((benefit, index) => (
+                <li key={index} className="flex items-start gap-4">
+                  <FaCheckCircle className="text-green-500 text-xl" />
+                  <p className="text-white/80">{benefit}</p>
+                </li>
               ))}
             </ul>
           </div>

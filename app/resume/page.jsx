@@ -1,15 +1,33 @@
 "use client";
 
 import {
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaReact,
-  FaFigma,
-  FaNodeJs,
-} from "react-icons/fa";
+  SiGoogle,
+  SiMicrosoftExcel,
+  SiOpenai,
+  SiTrello,
+  SiPowerbi,
+  SiSlack,
+  SiZoom,
+  SiMicrosoftPowerpoint,
+  SiCanva,
+  SiMicrosoftTeams,
+  SiTodoist,
+  SiDropbox,
+  SiDocusign,
+  SiMailchimp,
+  SiHubspot,
+  SiMicrosoftOnenote,
+  SiBuffer,
+} from "react-icons/si";
 
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { FaGoogleScholar, FaMicrosoft } from "react-icons/fa6"; // Alternative for Google Scholar
+import { AiOutlineClockCircle } from "react-icons/ai"; // Alternative for Clockify
+import { BiCalendar, BiLogoMicrosoftTeams } from "react-icons/bi"; // Alternative for Calendly
+import {
+  PiMicrosoftExcelLogoBold,
+  PiMicrosoftPowerpointLogoBold,
+} from "react-icons/pi";
+import { FaFileSignature, FaDatabase } from "react-icons/fa";
 
 const about = {
   title: "About me",
@@ -95,34 +113,29 @@ const education = {
 };
 
 const skills = {
-  title: "My skills",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, possimus sapiente eligendi quidem tempora velit autem repudiandae adipisci provident nesciunt sit commodi asperiores dolorem necessitatibus quas id soluta reiciendis totam.",
+  title: "My Skills",
+  description: "Here are some of the tools and platforms I work with:",
   skillsList: [
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
-    },
+    { icon: SiGoogle, name: "Google Workspace" },
+    { icon: PiMicrosoftExcelLogoBold, name: "Microsoft Excel" },
+    { icon: SiOpenai, name: "ChatGPT" },
+    { icon: SiTrello, name: "Trello" },
+    { icon: FaDatabase, name: "Power BI" },
+    { icon: SiSlack, name: "Slack" },
+    { icon: SiZoom, name: "Zoom" },
+    { icon: BiCalendar, name: "Calendly" },
+    { icon: PiMicrosoftPowerpointLogoBold, name: "Microsoft PowerPoint" },
+    { icon: SiCanva, name: "Canva" },
+    { icon: BiLogoMicrosoftTeams, name: "Microsoft Teams" },
+    { icon: SiTodoist, name: "Todoist" },
+    { icon: AiOutlineClockCircle, name: "Clockify" },
+    { icon: SiDropbox, name: "Dropbox" },
+    { icon: FaFileSignature, name: "Docusign" },
+    { icon: SiMailchimp, name: "Mailchimp" },
+    { icon: SiHubspot, name: "HubSpot" },
+    { icon: FaMicrosoft, name: "OneNote" },
+    { icon: SiBuffer, name: "Buffer" },
+    { icon: FaGoogleScholar, name: "Google Scholar" },
   ],
 };
 
@@ -145,7 +158,7 @@ const Resume = () => {
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { delay: 2.4, durattion: 0.4, ease: "easeIn" },
+          transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
         }}
         className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
       >
@@ -165,7 +178,7 @@ const Resume = () => {
             <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
               <TabsTrigger value="experience">Experience</TabsTrigger>
               <TabsTrigger value="education">Education</TabsTrigger>
-              <TabsTrigger value="skills">Skills</TabsTrigger>
+              <TabsTrigger value="skills">Technical Skills</TabsTrigger>
               <TabsTrigger value="about">About me</TabsTrigger>
             </TabsList>
             <div className="min-h-[70vh] w-full">
@@ -235,29 +248,34 @@ const Resume = () => {
                       {skills.description}
                     </p>
                   </div>
-                  <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                    {skills.skillsList.map((skill, index) => {
-                      return (
-                        <li key={index}>
-                          <TooltipProvider delayDuration={100}>
-                            <Tooltip>
-                              <TooltipTrigger
-                                className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center
-                            group"
-                              >
-                                <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                                  {skill.icon}
-                                </div>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p className="captialize">{skill.name}</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <ScrollArea className="h-[400px]">
+                    <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                      {skills.skillsList.map((skill, index) => {
+                        if (!skill.icon) return null; // Ensure the icon is valid before rendering
+                        const IconComponent = skill.icon;
+                        return (
+                          <li
+                            key={index}
+                            className="flex flex-col items-center gap-2"
+                          >
+                            <TooltipProvider delayDuration={100}>
+                              <Tooltip>
+                                <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex flex-col justify-center items-center group">
+                                  <IconComponent className="text-6xl text-accent group-hover:text-yellow-500 transition-all duration-300" />
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p className="capitalize">{skill.name}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                            <p className="text-accent text-lg font-semibold">
+                              {skill.name}
+                            </p>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </ScrollArea>
                 </div>
               </TabsContent>
               <TabsContent
