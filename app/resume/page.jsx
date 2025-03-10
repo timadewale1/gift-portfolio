@@ -28,11 +28,12 @@ import {
   PiMicrosoftPowerpointLogoBold,
 } from "react-icons/pi";
 import { FaFileSignature, FaDatabase } from "react-icons/fa";
+import { useState, useEffect } from "react";
 
 const about = {
   title: "About me",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, possimus sapiente eligendi quidem tempora velit autem repudiandae adipisci provident nesciunt sit commodi asperiores dolorem necessitatibus quas id soluta reiciendis totam.",
+    "Results-driven Chief of Staff with over 4 years of experience providing comprehensive support to senior executives and managing high-quality stakeholder engagements. Skilled in data analysis, research, project management, optimizing office operations, managing complex calendars, and fostering seamless communication across teams. Adept at handling confidential information with discretion and efficiency. Seeking to leverage a strong organizational skill set and commitment to excellence in a challenging Executive Virtual Assistant role",
   info: [
     {
       fieldName: "Name:",
@@ -40,11 +41,11 @@ const about = {
     },
     {
       fieldName: "Phone:",
-      fieldValue: "1234567890",
+      fieldValue: "+2348081393230",
     },
     {
       fieldName: "Experience:",
-      fieldValue: "12+",
+      fieldValue: "5+",
     },
     {
       fieldName: "Linkeldin:",
@@ -55,16 +56,16 @@ const about = {
       fieldValue: "Nigerian",
     },
     {
-      fieldName: "Email",
-      fieldValue: "ghghjghjdjdjdj",
+      fieldName: "Email:",
+      fieldValue: "Nwamadugift12@gmail.com",
     },
     {
-      fieldName: "Freelance",
+      fieldName: "Freelance:",
       fieldValue: "Available",
     },
     {
       fieldName: "Languages:",
-      fieldValue: "yen yen yen",
+      fieldValue: "English, French",
     },
   ],
 };
@@ -76,19 +77,19 @@ const experience = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, possimus sapiente eligendi quidem tempora velit autem repudiandae adipisci provident nesciunt sit commodi asperiores dolorem necessitatibus quas id soluta reiciendis totam.",
   items: [
     {
-      company: "hghghghgh",
-      position: "Position: fulll jfjfjfjfj",
-      duration: "Duration: 2022 - jfjfj",
+      company: "Clean Technology Hub",
+      position: "EXECUTIVE ASSISTANT TO THE CEO",
+      duration: "January, 2023 - Present",
     },
     {
-      company: "hghghghgh",
-      position: "Position: fulll jfjfjfjfj",
-      duration: "Duration: 2022 - jfjfj",
+      company: "Clice Foundation",
+      position: "GENDER, COMMUNICATIONS AND SOCIAL MEDIA MANAGER",
+      duration: "June 2021 - April 2022",
     },
     {
-      company: "hghghghgh",
-      position: "Position: fulll jfjfjfjfj",
-      duration: "Duration: 2022 - jfjfj",
+      company: "Edo State University",
+      position: "RESEARCH ASSISTANT",
+      duration: "",
     },
   ],
 };
@@ -100,14 +101,14 @@ const education = {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, possimus sapiente eligendi quidem tempora velit autem repudiandae adipisci provident nesciunt sit commodi asperiores dolorem necessitatibus quas id soluta reiciendis totam.",
   items: [
     {
-      Instituion: "hghghghgh",
-      Degree: " Degree: fulll jfjfjfjfj",
-      year: "Year: 2022 - jfjfj",
+      Instituion: "Edo State University",
+      Degree: "Bachelor of Arts",
+      year: "2017 - 2020",
     },
     {
-      Instituion: "hghghghgh",
-      Degree: "Degree: fulll jfjfjfjfj",
-      year: "Year: 2022 - jfjfj",
+      Instituion: "HIIT Academy",
+      Degree: "DIGITAL MARKETING",
+      year: "",
     },
   ],
 };
@@ -150,8 +151,29 @@ import {
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
+import { FiArrowUp } from "react-icons/fi";
 
 const Resume = () => {
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <motion.div
@@ -311,6 +333,15 @@ const Resume = () => {
         </div>
       </motion.div>
       <div className="w-full h-[1px] bg-yellow-500 mt-5"></div>
+      {/* Scroll to Top Button */}
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-accent text-white p-3 rounded-full shadow-lg hover:bg-yellow-500 transition-all duration-300"
+        >
+          <FiArrowUp className="text-2xl" />
+        </button>
+      )}
     </>
   );
 };

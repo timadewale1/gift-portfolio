@@ -8,19 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { usePathname } from "next/navigation";
-
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
-
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-
 import Link from "next/link";
 import Image from "next/image";
-import WorkSliderBtns from "@/components/WorkSliderBtns";
 import { Button } from "@/components/ui/button";
 
 const projects = [
@@ -36,7 +25,7 @@ const projects = [
       { name: "Travel Arrangements" },
     ],
     image: "/assets/work/work2.jpg",
-    path: "/projects/virtual-assistance",
+    path: "/virtual",
   },
   {
     num: "02",
@@ -53,11 +42,85 @@ const projects = [
     image: "/assets/work/work1.jpg",
     path: "/research",
   },
+  {
+    num: "03",
+    category: "Customer Service Support",
+    title: "Data-Driven Insights & Engaging Content",
+    description:
+      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
+    Stack: [
+      { name: "Research & Data Analysis" },
+      { name: "Reports & Policy Briefs" },
+      { name: "PowerPoint Presentations" },
+      { name: "Discussion papers" },
+    ],
+    image: "/assets/work/work1.jpg",
+    path: "/customer",
+  },
+  {
+    num: "04",
+    category: "Project Management",
+    title: "Data-Driven Insights & Engaging Content",
+    description:
+      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
+    Stack: [
+      { name: "Research & Data Analysis" },
+      { name: "Reports & Policy Briefs" },
+      { name: "PowerPoint Presentations" },
+      { name: "Discussion papers" },
+    ],
+    image: "/assets/work/work1.jpg",
+    path: "/research",
+  },
+  {
+    num: "05",
+    category: "Invoice/memo preparation/financial tracking and data analaysis",
+    title: "Data-Driven Insights & Engaging Content",
+    description:
+      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
+    Stack: [
+      { name: "Research & Data Analysis" },
+      { name: "Reports & Policy Briefs" },
+      { name: "PowerPoint Presentations" },
+      { name: "Discussion papers" },
+    ],
+    image: "/assets/work/work1.jpg",
+    path: "/invoice",
+  },
+  {
+    num: "06",
+    category: "Knowledge Management and IT Support",
+    title: "Data-Driven Insights & Engaging Content",
+    description:
+      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
+    Stack: [
+      { name: "Research & Data Analysis" },
+      { name: "Reports & Policy Briefs" },
+      { name: "PowerPoint Presentations" },
+      { name: "Discussion papers" },
+    ],
+    image: "/assets/work/work1.jpg",
+    path: "/knowledge",
+  },
+];
+
+const testimonials = [
+  {
+    text:
+      "Gift is the backbone of our organization, and her contributions are invaluable to both our success and my personal growth as a leader...",
+    author: "Ifeoma Malo",
+    designation: "CEO/Co-founder, Clean Technology Hub",
+  },
+  {
+    text:
+      "Gift is a Force to be reckoned with; a true assistant. She anticipates needs and always knows what to do with minimal or no supervision...",
+    author: "Ijeoma",
+    designation: "CEO, IJ Royal Interiors, Past Client",
+  },
 ];
 
 const Work = () => {
   const pathname = usePathname();
-
   const [project, setProject] = useState(projects[0]);
 
   const handleSlideChange = (swiper) => {
@@ -91,13 +154,13 @@ const Work = () => {
                 <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                   {project.num}
                 </div>
-                <h2 className="text-[25px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                <h2 className="text-[25px] font-bold leading-none text-white capitalize text-wrap">
                   {project.category} Project
                 </h2>
                 <p className="text-white/60">{project.description}</p>
                 <ul className="flex gap-4">
                   {project.Stack.map((item, index) => (
-                    <li key={index} className="text-xl text-accent">
+                    <li key={index} className="text-xl text-accent text-wrap">
                       {item.name}
                       {index !== project.Stack.length - 1 && ","}
                     </li>
@@ -106,14 +169,7 @@ const Work = () => {
                 <div className="border border-white/40"></div>
                 <div className="flex items-center gap-4">
                   <Link href={project.path}>
-                    <Button
-                      className={`${
-                        pathname === project.path &&
-                        "bg-accent text-white border-accent"
-                      }`}
-                    >
-                      Check More
-                    </Button>
+                    <Button>{"Check More"}</Button>
                   </Link>
                 </div>
               </div>
@@ -148,7 +204,41 @@ const Work = () => {
           </div>
         </div>
       </motion.section>
-      <div className="w-full h-[1px] bg-yellow-500"></div>
+
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl font-bold text-center text-accent mb-10"
+      >
+        Testimonials
+      </motion.h1>
+      <div className="container mx-auto my-12">
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          modules={[Navigation, Pagination]}
+          className="w-full max-w-3xl mx-auto"
+        >
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <div className="p-6 border-2 border-yellow-500 bg-white/5 rounded-lg text-center">
+                <p className="text-white text-lg italic">
+                  &quot;{testimonial.text}&quot;
+                </p>
+                <div className="mt-4 text-yellow-500 font-semibold">
+                  {testimonial.author}
+                </div>
+                <div className="text-yellow-500 text-sm">
+                  {testimonial.designation}
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 };

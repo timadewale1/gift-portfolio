@@ -12,7 +12,7 @@ const services = [
     title: "Virtual/administrative support",
     description:
       "Seamlessly managing your emails, calendars, travel arrangements, organizing files, and daily operations, ensuring you stay on top of your priorities",
-    path: "/projects/virtual-assistance",
+    path: "/virtual",
   },
   {
     num: "02",
@@ -26,21 +26,21 @@ const services = [
     title: "Customer Service Support",
     description:
       "Ensuring your clients receive top-notch service through email, chat, and follow-ups",
-    path: "/projects/virtual-assistance",
+    path: "/customer",
   },
   {
     num: "04",
     title: "Project Management",
     description:
       "Coordinating tasks, tracking deadlines, and ensuring seamless execution of your projects.",
-    path: "/projects/virtual-assistance",
+    path: "/project",
   },
   {
     num: "05",
     title: "Invoice/memo preparation/financial tracking and data analaysis",
     description:
       "Invoice creation, memo preparation, financial tracking, and data analysis.",
-    path: "/projects/virtual-assistance",
+    path: "/invoice",
   },
   {
     num: "06",
@@ -51,7 +51,7 @@ const services = [
       "Organizing company documents, knowledge bases, and shared drives for seamless collaboration.",
       "Ensuring data security, backups, and compliance with digital best practices.",
     ],
-    path: "/projects/virtual-assistance",
+    path: "/knowledge",
   },
 ];
 

@@ -12,8 +12,6 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { FiArrowUp } from "react-icons/fi";
 
 const projects = [
   {
@@ -166,26 +164,6 @@ const projects = [
 ];
 
 const Work1 = () => {
-  const [showScrollButton, setShowScrollButton] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 500) {
-        setShowScrollButton(true);
-      } else {
-        setShowScrollButton(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Scroll to top function
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -267,15 +245,6 @@ const Work1 = () => {
           ))}
         </div>
       </div>
-      {/* Scroll to Top Button */}
-      {showScrollButton && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-accent text-white p-3 rounded-full shadow-lg hover:bg-yellow-500 transition-all duration-300"
-        >
-          <FiArrowUp className="text-2xl" />
-        </button>
-      )}
     </motion.section>
   );
 };

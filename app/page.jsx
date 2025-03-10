@@ -98,7 +98,7 @@ const Home = () => {
             </a>
             {/* Buttons */}
             <div className="flex flex-col xl:flex-row items-center gap-6">
-              <a href="/assets/Gift_Nwamadu_CV.pdf" download>
+              <a href="/assets/resume/giftCV.pdf" download>
                 <Button
                   variant="outline"
                   size="lg"

@@ -166,7 +166,15 @@ const Contact = () => {
                 </motion.li>
               ))}
             </ul>
-            <ul className="mt-10 space-y-4">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl font-bold text-left text-accent mt-5"
+            >
+              Why Work With Me?
+            </motion.h1>
+            <ul className="mt-2 space-y-4">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start gap-4">
                   <FaCheckCircle className="text-green-500 text-xl" />
