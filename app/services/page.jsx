@@ -37,7 +37,7 @@ const services = [
   },
   {
     num: "05",
-    title: "Invoice/memo preparation/financial tracking and data analaysis",
+    title: "Invoice, Memo Tracking and Data Analaysis",
     description:
       "Invoice creation, memo preparation, financial tracking, and data analysis.",
     path: "/invoice",
@@ -60,7 +60,7 @@ const Services = () => {
 
   return (
     <>
-      <section className="min-h-screen flex flex-col justify-center py-16 bg-gradient-to-b from-[#0A1931] to-black">
+      <section className="min-h-screen flex flex-col justify-center py-16">
         <div className="container mx-auto px-6">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}

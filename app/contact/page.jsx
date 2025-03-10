@@ -48,7 +48,7 @@ const info = [
   {
     icon: <FaMapMarkedAlt />,
     title: "Address",
-    description: "Nigeria",
+    description: "Abuja, Nigeria",
   },
 ];
 
@@ -68,18 +68,26 @@ const Contact = () => {
         y: 0,
         transition: { delay: 0.3, duration: 0.6, ease: "easeOut" },
       }}
-      className="py-12 bg-gradient-to-b from-[#0A1931] to-black text-white"
+      className="py-12 text-white"
     >
       <div className="container mx-auto px-6">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-left text-accent mb-4"
+          className="text-4xl font-bold text-left text-accent mb-5"
         >
-          Contact Me
+          Why Work With Me?
         </motion.h1>
-        <p className="text-lg text-white/80 mb-10">
+        <ul className="mt-2 space-y-4">
+          {benefits.map((benefit, index) => (
+            <li key={index} className="flex items-start gap-4">
+              <FaCheckCircle className="text-green-500 text-xl" />
+              <p className="text-white/80">{benefit}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="text-lg text-accent mb-10 mt-10">
           Ready to make your operations stress-free? Let’s talk!
         </p>
 
@@ -164,22 +172,6 @@ const Contact = () => {
                     </h3>
                   </div>
                 </motion.li>
-              ))}
-            </ul>
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl font-bold text-left text-accent mt-5"
-            >
-              Why Work With Me?
-            </motion.h1>
-            <ul className="mt-2 space-y-4">
-              {benefits.map((benefit, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <FaCheckCircle className="text-green-500 text-xl" />
-                  <p className="text-white/80">{benefit}</p>
-                </li>
               ))}
             </ul>
           </div>

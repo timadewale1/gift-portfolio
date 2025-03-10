@@ -9,7 +9,7 @@
 
   body {
     @apply font-primary text-white leading-loose;
-    background: linear-gradient(135deg, #0a1931, black);
+    background: black;
   }
   .h1 {
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
