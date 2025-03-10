@@ -186,7 +186,7 @@ const Work = () => {
               >
                 {projects.map((project, index) => (
                   <SwiperSlide key={index} className="w-full">
-                    <div className="h-[600px] relative group flex justify-center items-center bg-gray-800/30 rounded-lg shadow-lg">
+                    <div className="h-[600px] relative group flex justify-center items-center bg-blue-800/30 rounded-lg shadow-lg">
                       <div className="absolute top-0 bottom-0 w-full h-full bg-black/20 z-10"></div>
                       <div className="relative w-full h-full">
                         <Image
