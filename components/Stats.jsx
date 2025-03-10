@@ -4,20 +4,20 @@ import CountUp from "react-countup";
 
 const stats = [
   {
+    num: 10,
+    text: "Executive Reports & Memos",
+  },
+  {
     num: 5,
-    text: "Years of experience",
+    text: "Research & Strategy Briefs",
   },
   {
-    num: 4,
-    text: "Articles Published",
+    num: 75,
+    text: "Emails Managed Daily",
   },
   {
-    num: 8,
-    text: "blah blah blah",
-  },
-  {
-    num: 500,
-    text: "yada yada yada",
+    num: 35,
+    text: "Meetings Streamlined Monthly",
   },
 ];
 
@@ -32,12 +32,14 @@ const Stats = () => {
                 className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
                 key={index}
               >
+                {" "}
                 <CountUp
                   end={item.num}
                   duration={5}
                   delay={2}
                   className="text-4xl xl:text-6xl font-extrabold"
                 />
+                <span className="text-4xl xl:text-6xl font-extrabold">+</span>
                 <p
                   className={`${
                     item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"

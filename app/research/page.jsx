@@ -20,7 +20,23 @@ const projects = [
     num: "01",
     category: "Policy Briefs, Article writing",
     title: "",
-    description: "Empowering Women in Administration",
+    description: "",
+    Stack: [""],
+    image: "",
+    live: [
+      {
+        name: "",
+        url: "",
+      },
+    ],
+    github: "",
+  },
+  {
+    num: "",
+    category: "Empowering Women in Administration: Driving Sustainable CSR",
+    title: "",
+    description:
+      "Women in administration are reshaping Corporate Social Responsibility (CSR) by championing sustainability, diversity, and social impact. ",
     Stack: [""],
     image: "/assets/work/research2.webp",
     live: [
@@ -34,9 +50,11 @@ const projects = [
   },
   {
     num: "",
-    category: "",
+    category:
+      "Strengthening Sustainable Governance & Environmental Management in Nigeria",
     title: "",
-    description: "Strengthening Sustainability Governance",
+    description:
+      "This policy brief highlights Nigeria’s key environmental challenges, including deforestation, pollution, and climate change, while addressing policy gaps. It proposes stronger law enforcement, better inter-agency coordination, and community-led initiatives for a more sustainable future.",
     Stack: [""],
     image: "/assets/work/research1.jpeg",
     live: [
@@ -50,9 +68,11 @@ const projects = [
   },
   {
     num: "",
-    category: "",
+    category:
+      "Green Technology & Youth Employment in Africa: A Transformative Opportunity",
     title: "",
-    description: "Green Technology and Youth Employment",
+    description:
+      "This paper explores how green technologies—renewable energy, sustainable agriculture, and waste management—can drive youth employment in Africa. With Africa’s youth population expected to exceed 800 million by 2050, leveraging green tech is key to tackling unemployment and promoting sustainable development.",
     Stack: [""],
     image: "/assets/work/research3.jpeg",
     live: [
@@ -66,9 +86,11 @@ const projects = [
   },
   {
     num: "",
-    category: "",
+    category:
+      "Gender Relations & Socioeconomic Change in Colonial Southeastern Nigeria",
     title: "",
-    description: "Gender Relations and Socioeconomic Changes...",
+    description:
+      "This paper explores the impact of colonialism on gender roles in Owerri, Nigeria, highlighting how women, despite colonial restrictions, played a crucial role in trade, governance, and resistance movements. It examines economic shifts, cultural disruptions, and women's political activism, including the famous Aba Women’s Riot of 1929.",
     Stack: [""],
     image: "/assets/work/research4.jpeg",
     live: [
@@ -247,8 +269,8 @@ const Work1 = () => {
                   </div>
                 </div>
                 <div className="w-full xl:w-[50%]">
-                  <div className="h-[570px] relative group flex justify-center items-center  bg-blue-800/30 rounded-lg shadow-lg">
-                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/20 z-10"></div>
+                  <div className=" relative group flex justify-center items-center rounded-lg shadow-lg aspect-[16/9]">
+                    {/* <div className="absolute top-0 bottom-0 w-full h-full  z-10"></div> */}
                     <div className="relative w-full h-full">
                       <Image
                         src={project.image}
