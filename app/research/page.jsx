@@ -86,7 +86,7 @@ const projects = [
     title: "",
     description: "Presentation",
     Stack: [""],
-    image: "/assets/work/Powerpoint1.jpeg",
+    image: "/assets/work/powerpoint1.jpeg",
     live: [
       {
         name: "Presentation...",
