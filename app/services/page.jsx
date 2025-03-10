@@ -89,7 +89,7 @@ const Services = () => {
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.03 }}
-                className="flex flex-col gap-6 p-6 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-lg transition-all duration-500 group"
+                className="flex flex-col gap-6 border-b border-t border-accent p-6 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-lg transition-all duration-500 group"
               >
                 {/* Top Section */}
                 <div className="flex justify-between items-center">
@@ -99,7 +99,7 @@ const Services = () => {
                   <Link
                     href={service.path}
                     target="_blank"
-                    className="w-16 h-16 rounded-full bg-white group-hover:bg-yellow-400 transition-all duration-500 flex justify-center items-center hover:rotate-45 shadow-lg"
+                    className="w-16 h-16 rounded-full bg-white group-hover:bg-yellow-400 transition-all duration-500 flex justify-center items-center hover:rotate-45 shadow-lg animate-bounce"
                   >
                     <Button>View</Button>
                   </Link>

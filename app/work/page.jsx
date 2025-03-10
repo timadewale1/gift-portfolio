@@ -239,6 +239,7 @@ const Work = () => {
           ))}
         </Swiper>
       </div>
+      <div className="w-full h-[1px] bg-yellow-500"></div>
     </>
   );
 };

@@ -90,7 +90,7 @@ const Home = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="uppercase flex items-center gap-2 border-accent text-accent hover:bg-accent hover:text-primary transition-all duration-500"
+                className="uppercase flex items-center gap-2 border-accent text-accent hover:bg-accent hover:text-primary transition-all duration-500 animate-bounce"
               >
                 <span>Hire Me</span>
                 <BiLink className="text-xl" />

@@ -83,16 +83,16 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mt-6 space-y-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6"
         >
           {benefits.map((benefit, index) => (
             <motion.li
               key={index}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              className="flex items-start gap-4 p-4 bg-[#1E293B] rounded-lg shadow-md hover:bg-[#0a1931] transition duration-300"
+              className="flex items-center gap-4 p-4 bg-[#1E293B] rounded-lg shadow-md hover:bg-[#334155] transition duration-300 w-full md:w-[500px]"
             >
-              <FaCheckCircle className="text-yellow-400 text-2xl drop-shadow-md animate-pulse" />
+              <FaCheckCircle className="text-yellow-400 text-2xl drop-shadow-md animate-bounce" />
               <p className="text-white/90 text-lg">{benefit}</p>
             </motion.li>
           ))}
