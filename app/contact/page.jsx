@@ -79,14 +79,24 @@ const Contact = () => {
         >
           Why Work With Me?
         </motion.h1>
-        <ul className="mt-2 space-y-4">
+        <motion.ul
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mt-6 space-y-6"
+        >
           {benefits.map((benefit, index) => (
-            <li key={index} className="flex items-start gap-4">
-              <FaCheckCircle className="text-green-500 text-xl" />
-              <p className="text-white/80">{benefit}</p>
-            </li>
+            <motion.li
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="flex items-start gap-4 p-4 bg-[#1E293B] rounded-lg shadow-md hover:bg-[#0a1931] transition duration-300"
+            >
+              <FaCheckCircle className="text-yellow-400 text-2xl drop-shadow-md animate-pulse" />
+              <p className="text-white/90 text-lg">{benefit}</p>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
         <p className="text-lg text-accent mb-10 mt-10">
           Ready to make your operations stress-free? Let’s talk!
         </p>
