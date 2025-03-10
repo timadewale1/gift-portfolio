@@ -231,7 +231,7 @@ const Work1 = () => {
                       <Image
                         src={project.image}
                         fill
-                        className="object-cover rounded-lg"
+                        className="object-contain rounded-lg"
                         alt={`Project ${index + 1}`}
                       />
                     </div>

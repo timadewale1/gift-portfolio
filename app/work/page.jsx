@@ -155,7 +155,7 @@ const Work = () => {
                   {project.num}
                 </div>
                 <h2 className="text-[25px] font-bold leading-none text-white capitalize text-wrap">
-                  {project.category} Project
+                  {project.category}
                 </h2>
                 <p className="text-white/60">{project.description}</p>
                 <ul className="flex gap-4">
