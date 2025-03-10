@@ -181,13 +181,13 @@ const Work = () => {
                 navigation
                 pagination={{ clickable: true }}
                 modules={[Navigation, Pagination]}
-                className="xl:h-[520px] mb-12 text-accent"
+                className="xl:h-[520px] mb-5 text-accent"
                 onSlideChange={handleSlideChange}
               >
                 {projects.map((project, index) => (
                   <SwiperSlide key={index} className="w-full">
-                    <div className="h-[600px] relative group flex justify-center items-center bg-blue-800/30 rounded-lg shadow-lg">
-                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/20 z-10"></div>
+                    <div className="relative group flex justify-start items-start rounded-lg shadow-lg w-full aspect-[16/9]">
+                      {/* <div className="absolute top-0 bottom-0 w-full h-full z-10"></div> */}
                       <div className="relative w-full h-full">
                         <Image
                           src={project.image}
