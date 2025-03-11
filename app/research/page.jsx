@@ -251,14 +251,14 @@ const Work1 = () => {
                     ))}
                   </ul>
                   <div className="border border-white/40"></div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex gap-4">
                     {project.live &&
                       project.live.map((report, idx) => (
                         <Link key={idx} href={report.url} target="_blank">
                           <TooltipProvider delayDuration={100}>
                             <Tooltip>
-                              <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group transition-all hover:bg-white/10 mb-8">
-                                <Button className="text-white text-1xl w-[100px]">
+                              <TooltipTrigger>
+                                <Button className="text-black text-1xl text-nowrap w-[100px] mb-8">
                                   {"Read More"}
                                 </Button>
                               </TooltipTrigger>
