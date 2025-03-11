@@ -18,7 +18,7 @@ const projects = [
     num: "01",
     category: "Knowledge Management and IT Support",
     title: "",
-    description: [""],
+    description: [" "],
     Stack: [""],
     images: [
       "/assets/work/knowledge1.jpeg",
@@ -82,19 +82,7 @@ const ProjectCard = ({ project, index }) => {
           <h2 className="text-[25px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
             {project.category}
           </h2>
-          <div className="flex flex-col gap-2">
-            {project.description.map((point, idx) => {
-              // Split the text into the bold keyword and the rest of the sentence
-              const [boldText, normalText] = point.split(": ");
-
-              return (
-                <p key={idx} className="text-white">
-                  <span className="font-bold text-accent">{boldText}:</span>{" "}
-                  {normalText}
-                </p>
-              );
-            })}
-          </div>
+          <div className="flex flex-col gap-2">{project.description}</div>
           <ul className="flex gap-4">
             {project.Stack.map((item, idx) => (
               <li key={idx} className="text-xl text-accent">

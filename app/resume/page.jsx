@@ -102,7 +102,7 @@ const education = {
   items: [
     {
       Instituion: "Edo State University",
-      Degree: "Bachelor of Arts",
+      Degree: "Bachelor of Arts(4.79 CGPA)",
       year: "2017 - 2020",
     },
     {

@@ -27,3 +27,29 @@
     -webkit-text-stroke: 1px #ffd700;
   }
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: blue; /* Gold circle */
+  color: white !important; /* Black arrow */
+  border-radius: 50%;
+  width: 40px !important; /* Adjust size */
+  height: 40px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure Swiper default arrows are properly styled */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 25px !important; /* Adjust arrow size */
+  font-weight: bold;
+  color: white !important; /* Force arrow color to black */
+}
+
+/* Optional: Change hover effect */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: darkgoldenrod;
+}

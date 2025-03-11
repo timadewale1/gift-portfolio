@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -24,7 +24,16 @@ const projects = [
       { name: "Calendar Management" },
       { name: "Travel Arrangements" },
     ],
-    image: "/assets/work/work2.jpg",
+    images: [
+      "/assets/work/email1.jpeg",
+      "/assets/work/email2.jpeg",
+      "/assets/work/Calender1.jpg",
+      "/assets/work/calendar2.jpg",
+      "/assets/work/travel1.jpeg",
+      "/assets/work/travel2.jpeg",
+      "/assets/work/travel3.jpeg",
+      "/assets/work/travel4.png",
+    ],
     path: "/virtual",
   },
   {
@@ -32,75 +41,70 @@ const projects = [
     category: "Research & Writing",
     title: "Data-Driven Insights & Engaging Content",
     description:
-      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
+      "Data-Driven Insights & Engaging Content for Impactful Decisions",
     Stack: [
       { name: "Research & Data Analysis" },
       { name: "Reports & Policy Briefs" },
       { name: "PowerPoint Presentations" },
       { name: "Discussion papers" },
     ],
-    image: "/assets/work/work1.jpg",
+    images: ["/assets/work/work1.jpg"],
     path: "/research",
   },
   {
     num: "03",
-    category: "Customer Service Support",
-    title: "Data-Driven Insights & Engaging Content",
+    category: "Project Management",
+    title: "",
     description:
-      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
-    Stack: [
-      { name: "Research & Data Analysis" },
-      { name: "Reports & Policy Briefs" },
-      { name: "PowerPoint Presentations" },
-      { name: "Discussion papers" },
-    ],
-    image: "/assets/work/work1.jpg",
-    path: "/customer",
+      "Coordinating tasks, tracking deadlines, and ensuring seamless execution of your projects.",
+    Stack: [""],
+    images: ["/assets/work/project1.png", "/assets/work/project2.png"],
+    path: "/project",
   },
   {
     num: "04",
-    category: "Project Management",
-    title: "Data-Driven Insights & Engaging Content",
+    category: "Invoice, Memo Tracking and Data Analaysis",
+    title: "",
     description:
-      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
-    Stack: [
-      { name: "Research & Data Analysis" },
-      { name: "Reports & Policy Briefs" },
-      { name: "PowerPoint Presentations" },
-      { name: "Discussion papers" },
+      "Invoice creation, memo preparation, financial tracking, and data analysis",
+    Stack: [""],
+    images: [
+      "/assets/work/invoice1.png",
+      "/assets/work/invoice4.png",
+      "/assets/work/invoice2.jpeg",
+      "/assets/work/invoice3.jpeg",
     ],
-    image: "/assets/work/work1.jpg",
-    path: "/research",
-  },
-  {
-    num: "05",
-    category: "Invoice/memo preparation/financial tracking and data analaysis",
-    title: "Data-Driven Insights & Engaging Content",
-    description:
-      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
-    Stack: [
-      { name: "Research & Data Analysis" },
-      { name: "Reports & Policy Briefs" },
-      { name: "PowerPoint Presentations" },
-      { name: "Discussion papers" },
-    ],
-    image: "/assets/work/work1.jpg",
     path: "/invoice",
   },
   {
-    num: "06",
+    num: "05",
     category: "Knowledge Management and IT Support",
-    title: "Data-Driven Insights & Engaging Content",
-    description:
-      "Providing research and writing support, including data analysis, reports, policy briefs, and discussion papers.",
-    Stack: [
-      { name: "Research & Data Analysis" },
-      { name: "Reports & Policy Briefs" },
-      { name: "PowerPoint Presentations" },
-      { name: "Discussion papers" },
+    title: "",
+    description: [
+      "Managing email seats, user accounts, and access control.",
+      "Overseeing web hosting, domain management, and troubleshooting website-related issues.",
+      "Organizing company documents, knowledge bases, and shared drives for seamless collaboration.",
+      "Ensuring data security, backups, and compliance with digital best practices.",
     ],
-    image: "/assets/work/work1.jpg",
+    Stack: [""],
+    images: [
+      "/assets/work/knowledge3.png",
+      "/assets/work/knowledge4.png",
+      "/assets/work/knowledge5.png",
+      "/assets/work/knowledge1.jpeg",
+      "/assets/work/knowledge2.jpeg",
+    ],
     path: "/knowledge",
+  },
+  {
+    num: "06",
+    category: "Customer Service Support",
+    title: "",
+    description:
+      "Ensuring your clients receive top-notch service through email, chat, and follow-ups",
+    Stack: [""],
+    images: ["/assets/work/project1.png", "/assets/work/project2.png"],
+    path: "/customer",
   },
 ];
 
@@ -128,10 +132,23 @@ const testimonials = [
 const Work = () => {
   const pathname = usePathname();
   const [project, setProject] = useState(projects[0]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (project.images.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex(
+          (prevIndex) => (prevIndex + 1) % project.images.length
+        );
+      }, 15000);
+      return () => clearInterval(interval);
+    }
+  }, [project]);
 
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.realIndex;
     setProject(projects[currentIndex]);
+    setCurrentImageIndex(0);
   };
 
   return (
@@ -163,7 +180,17 @@ const Work = () => {
                 <h2 className="text-[25px] font-bold leading-none text-white capitalize text-wrap">
                   {project.category}
                 </h2>
-                <p className="text-white/60">{project.description}</p>
+                {Array.isArray(project.description) ? (
+                  <ul className="text-white/70 leading-relaxed list-disc pl-5">
+                    {project.description.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-white/70 leading-relaxed">
+                    {project.description}
+                  </p>
+                )}{" "}
                 <ul className="flex gap-4">
                   {project.Stack.map((item, index) => (
                     <li key={index} className="text-xl text-accent text-wrap">
@@ -184,7 +211,7 @@ const Work = () => {
               <Swiper
                 spaceBetween={30}
                 slidesPerView={1}
-                navigation
+                navigation={{ clickable: true }}
                 pagination={{ clickable: true }}
                 modules={[Navigation, Pagination]}
                 className="xl:h-[520px] mb-5 text-accent"
@@ -192,16 +219,23 @@ const Work = () => {
               >
                 {projects.map((project, index) => (
                   <SwiperSlide key={index} className="w-full">
-                    <div className="relative group flex justify-start items-start rounded-lg shadow-lg w-full aspect-[16/9]">
-                      {/* <div className="absolute top-0 bottom-0 w-full h-full z-10"></div> */}
-                      <div className="relative w-full h-full">
+                    {/* <div className="absolute top-0 bottom-0 w-full h-full z-10"></div> */}
+                    <div className="relative group flex justify-start items-start rounded-lg shadow-lg w-full aspect-[16/9] overflow-hidden">
+                      <motion.div
+                        key={currentImageIndex}
+                        initial={{ x: "100%" }}
+                        animate={{ x: "0%" }}
+                        exit={{ x: "-100%" }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                        className="absolute w-full h-full"
+                      >
                         <Image
-                          src={project.image}
+                          src={project.images[currentImageIndex]}
                           fill
                           className="object-contain rounded-lg"
-                          alt={`Project ${index + 1}`}
+                          alt={`Project Image ${currentImageIndex + 1}`}
                         />
-                      </div>
+                      </motion.div>
                     </div>
                   </SwiperSlide>
                 ))}

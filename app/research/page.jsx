@@ -14,6 +14,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FiArrowUp } from "react-icons/fi";
+import { Button } from "@/components/ui/button";
 
 const projects = [
   {
@@ -257,7 +258,9 @@ const Work1 = () => {
                           <TooltipProvider delayDuration={100}>
                             <Tooltip>
                               <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group transition-all hover:bg-white/10 mb-8">
-                                <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                                <Button className="text-white text-1xl w-[100px]">
+                                  {"Read More"}
+                                </Button>
                               </TooltipTrigger>
                               <TooltipContent>
                                 <p>{report.name}</p>
