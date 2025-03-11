@@ -117,6 +117,12 @@ const testimonials = [
     author: "Ijeoma",
     designation: "CEO, IJ Royal Interiors, Past Client",
   },
+  {
+    text:
+      "Gift is exceptionally dedicated, highly organised, and delivers top-tier results with minimal supervision. Her diligence, problem-solving skills, and ability to manage complex tasks make her an invaluable asset to any team or executive she supports",
+    author: "Chris I.A. Oke",
+    designation: "PhD, Supervisor, Edo University Iyamho",
+  },
 ];
 
 const Work = () => {
