@@ -115,12 +115,18 @@ const education = {
   certifications: [
     {
       title: "Youth Sustainable Energy Fellowship",
-      pdfUrl: "certificates/certificate1.pdf",
+      pdfUrl: "/certificates/certificate1.pdf",
+      image: "/certificates/certificate1.png",
     },
     {
-      title: "Microsoft Excel Specialist Certification",
-      pdfUrl:
-        "https://drive.google.com/file/d/1EOUlO1zKWhvvnYuRO8WyvMGLOxfdZ7u_/view?usp=drive_link",
+      title: "Fundamentals of Digital Marketing Certification",
+      pdfUrl: "/certificates/certificate2.pdf",
+      image: "/certificates/certificate2.png",
+    },
+    {
+      title: "Certificate in Digital Marketing",
+      pdfUrl: "/certificates/certificate3.pdf",
+      image: "/certificates/certificate3.png",
     },
   ],
 };
@@ -271,11 +277,10 @@ const Resume = () => {
                         );
                       })}
                     </ul>
-                  </ScrollArea>
-                  {/* Certifications Section */}
-                  {/* <h3 className="text-3xl font-bold mt-8">Certifications</h3>
-                  <ScrollArea className="h-[400px]">
-                    <ul className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                    <h3 className="text-3xl font-bold mt-8 mb-8 text-accent">
+                      Certifications
+                    </h3>
+                    <ul className="grid grid-cols-2 sm:grid-cols-3 gap-6 bg-[#232329] py-6 px-10 rounded-xl flex-col">
                       {education.certifications.map((cert, index) => (
                         <li
                           key={index}
@@ -287,24 +292,20 @@ const Resume = () => {
                             rel="noopener noreferrer"
                           >
                             <Image
-                              src={
-                                thumbnails[cert.pdfUrl] ||
-                                cert.thumbnail ||
-                                "/default-thumbnail.png"
-                              }
-                              width={200}
+                              src={cert.image}
+                              width={300}
                               height={150}
                               alt={cert.title}
                               className="w-full h-[150px] object-cover rounded-lg hover:opacity-80 transition-all duration-300"
                             />
                           </a>
-                          <p className="text-lg text-accent font-semibold text-center">
+                          <p className="text-1xl text-accent font-semibold text-center">
                             {cert.title}
                           </p>
                         </li>
                       ))}
                     </ul>
-                  </ScrollArea> */}
+                  </ScrollArea>
                 </div>{" "}
               </TabsContent>{" "}
               <TabsContent value="skills" className="w-full h-full">

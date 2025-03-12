@@ -171,7 +171,7 @@ const Work = () => {
           >
             Projects
           </motion.h1>
-          <div className="w-full h-[1px] bg-yellow-500"></div>
+          <div className="w-full h-[1px] bg-yellow-500 mb-8"></div>
           <div className="flex flex-col xl:flex-row xl:gap-[30px]">
             <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
               <div className="flex flex-col gap-[30px] h-[50%]">
@@ -203,7 +203,9 @@ const Work = () => {
                 <div className="border border-white/40"></div>
                 <div className="flex items-center gap-4">
                   <Link href={project.path}>
-                    <Button>{"Check More"}</Button>
+                    <Button className="outline-2 hover:bg-white">
+                      {"Check More"}
+                    </Button>
                   </Link>
                 </div>
               </div>
