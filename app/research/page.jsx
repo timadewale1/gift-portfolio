@@ -57,7 +57,7 @@ const projects = [
     description:
       "This policy brief highlights Nigeria’s key environmental challenges, including deforestation, pollution, and climate change, while addressing policy gaps. It proposes stronger law enforcement, better inter-agency coordination, and community-led initiatives for a more sustainable future.",
     Stack: [""],
-    image: "/assets/work/research1.jpeg",
+    image: "/assets/work/research.jpeg",
     live: [
       {
         name: "Strengthening Sustainability Governance...",
@@ -107,7 +107,8 @@ const projects = [
     num: "02",
     category: "PowerPoint Presentations",
     title: "",
-    description: "Presentation",
+    description:
+      "I design high-impact presentations that blend strategy, clarity, and compelling visuals. Whether it's an executive briefing, investor pitch, or policy report, my slides don’t just inform, they influence and inspire action.",
     Stack: [""],
     image: "/assets/work/powerpoint1.jpeg",
     live: [
@@ -228,6 +229,10 @@ const Work1 = () => {
         >
           Research & Writing
         </motion.h1>
+        <p className="text-white">
+          I craft data-driven reports, policy briefs, and thought leadership
+          pieces that turn research into action
+        </p>
         <div className="w-full h-[1px] bg-yellow-500 my-12"></div>
 
         <div className="flex flex-col gap-12">
@@ -243,48 +248,60 @@ const Work1 = () => {
                   </h2>
                   <p className="text-accent">{project.description}</p>
                   <ul className="flex gap-4">
-                    {project.Stack.map((item, idx) => (
-                      <li key={idx} className="text-xl text-accent">
-                        {item.name}
-                        {idx !== project.Stack.length - 1 && ","}
-                      </li>
-                    ))}
+                    {project.Stack.map((item, idx) =>
+                      item ? (
+                        <li key={idx} className="text-xl text-accent">
+                          {item}
+                          {idx !== project.Stack.length - 1 && ","}
+                        </li>
+                      ) : null
+                    )}
                   </ul>
                   <div className="border border-white/40"></div>
-                  <div className="flex gap-4">
-                    {project.live &&
-                      project.live.map((report, idx) => (
-                        <Link key={idx} href={report.url} target="_blank">
-                          <TooltipProvider delayDuration={100}>
-                            <Tooltip>
-                              <TooltipTrigger>
-                                <Button className="text-black text-1xl text-nowrap w-[100px] mb-8">
-                                  {"Read More"}
-                                </Button>
-                              </TooltipTrigger>
-                              <TooltipContent>
-                                <p>{report.name}</p>
-                              </TooltipContent>
-                            </Tooltip>
-                          </TooltipProvider>
-                        </Link>
-                      ))}
-                  </div>
+
+                  {/* Only render the links if they have a valid URL */}
+                  {project.live && project.live.some((report) => report.url) && (
+                    <div className="flex gap-4">
+                      {project.live.map(
+                        (report, idx) =>
+                          report.url && (
+                            <Link key={idx} href={report.url} target="_blank">
+                              <TooltipProvider delayDuration={100}>
+                                <Tooltip>
+                                  <TooltipTrigger>
+                                    <Button className="text-black text-1xl text-nowrap w-[100px] mb-8">
+                                      {"Read More"}
+                                    </Button>
+                                  </TooltipTrigger>
+                                  <TooltipContent>
+                                    <p>{report.name}</p>
+                                  </TooltipContent>
+                                </Tooltip>
+                              </TooltipProvider>
+                            </Link>
+                          )
+                      )}
+                    </div>
+                  )}
                 </div>
-                <div className="w-full xl:w-[50%]">
-                  <div className=" relative group flex justify-center items-center rounded-lg shadow-lg aspect-[16/9]">
-                    {/* <div className="absolute top-0 bottom-0 w-full h-full  z-10"></div> */}
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={project.image}
-                        fill
-                        className="object-contain rounded-lg"
-                        alt={`Project ${index + 1}`}
-                      />
+
+                {/* Only render the image if a valid URL is provided */}
+                {project.image && (
+                  <div className="w-full xl:w-[50%]">
+                    <div className="relative group flex justify-center items-center rounded-lg shadow-lg aspect-[16/9]">
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={project.image}
+                          fill
+                          className="object-contain rounded-lg"
+                          alt={`Project ${index + 1}`}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
+
               {index !== projects.length - 1 && (
                 <div className="w-full h-[1px] bg-yellow-500 my-12"></div>
               )}

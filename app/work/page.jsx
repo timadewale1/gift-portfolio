@@ -124,8 +124,8 @@ const testimonials = [
   {
     text:
       "Gift is exceptionally dedicated, highly organised, and delivers top-tier results with minimal supervision. Her diligence, problem-solving skills, and ability to manage complex tasks make her an invaluable asset to any team or executive she supports",
-    author: "Chris I.A. Oke",
-    designation: "PhD, Supervisor, Edo University Iyamho",
+    author: "Chris Oke, PhD",
+    designation: "Supervisor, Edo University",
   },
 ];
 
@@ -140,7 +140,7 @@ const Work = () => {
         setCurrentImageIndex(
           (prevIndex) => (prevIndex + 1) % project.images.length
         );
-      }, 15000);
+      }, 10000);
       return () => clearInterval(interval);
     }
   }, [project]);
@@ -169,8 +169,9 @@ const Work = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl font-bold text-left text-accent mb-10"
           >
-            My Projects
+            Projects
           </motion.h1>
+          <div className="w-full h-[1px] bg-yellow-500"></div>
           <div className="flex flex-col xl:flex-row xl:gap-[30px]">
             <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
               <div className="flex flex-col gap-[30px] h-[50%]">

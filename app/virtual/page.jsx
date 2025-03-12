@@ -50,7 +50,7 @@ const projects = [
       "/assets/work/travel1.jpeg",
       "/assets/work/travel2.jpeg",
       "/assets/work/travel3.jpeg",
-      "/assets/work/travel4.jpeg",
+      "/assets/work/travel4.png",
     ],
   },
 ];
@@ -68,7 +68,7 @@ const Work1 = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-left text-accent mb-10"
+          className="text-2xl font-bold text-left text-accent mb-10"
         >
           Virtual Assistance/administrative support{" "}
         </motion.h1>

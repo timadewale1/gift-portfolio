@@ -141,9 +141,27 @@ const Contact = () => {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="research">Research</SelectItem>
-                    <SelectItem value="friend">Timi&apos;s Friend</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="Virtual/administrative support">
+                      Virtual/administrative support
+                    </SelectItem>
+                    <SelectItem value="Research & Writing">
+                      Research & Writing
+                    </SelectItem>
+                    <SelectItem value="Customer Service Support">
+                      Customer Service Support
+                    </SelectItem>
+                    <SelectItem value="Project Management">
+                      Project Management
+                    </SelectItem>
+                    <SelectItem value="Invoice, Memo Tracking and Data Analaysis">
+                      Invoice, Memo Tracking and Data Analaysis
+                    </SelectItem>
+                    <SelectItem value="Knowledge Management and IT Support">
+                      Knowledge Management and IT Support
+                    </SelectItem>
+                    <SelectItem value="other">
+                      Two or more services, please fill below
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>

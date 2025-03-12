@@ -111,6 +111,18 @@ const education = {
       year: "",
     },
   ],
+
+  certifications: [
+    {
+      title: "Youth Sustainable Energy Fellowship",
+      pdfUrl: "certificates/certificate1.pdf",
+    },
+    {
+      title: "Microsoft Excel Specialist Certification",
+      pdfUrl:
+        "https://drive.google.com/file/d/1EOUlO1zKWhvvnYuRO8WyvMGLOxfdZ7u_/view?usp=drive_link",
+    },
+  ],
 };
 
 const skills = {
@@ -152,10 +164,10 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 import { FiArrowUp } from "react-icons/fi";
+import Image from "next/image";
 
 const Resume = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 500) {
@@ -260,6 +272,39 @@ const Resume = () => {
                       })}
                     </ul>
                   </ScrollArea>
+                  {/* Certifications Section */}
+                  {/* <h3 className="text-3xl font-bold mt-8">Certifications</h3>
+                  <ScrollArea className="h-[400px]">
+                    <ul className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                      {education.certifications.map((cert, index) => (
+                        <li
+                          key={index}
+                          className="flex flex-col items-center gap-2"
+                        >
+                          <a
+                            href={cert.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Image
+                              src={
+                                thumbnails[cert.pdfUrl] ||
+                                cert.thumbnail ||
+                                "/default-thumbnail.png"
+                              }
+                              width={200}
+                              height={150}
+                              alt={cert.title}
+                              className="w-full h-[150px] object-cover rounded-lg hover:opacity-80 transition-all duration-300"
+                            />
+                          </a>
+                          <p className="text-lg text-accent font-semibold text-center">
+                            {cert.title}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </ScrollArea> */}
                 </div>{" "}
               </TabsContent>{" "}
               <TabsContent value="skills" className="w-full h-full">
