@@ -62,7 +62,7 @@ const ProjectCard = ({ project, index }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % project.images.length); // Cycle through all images
-    }, 15000); // Switch every 30 seconds
+    }, 10000); // Switch every 30 seconds
 
     return () => clearInterval(interval);
   }, [project.images.length]);
@@ -107,12 +107,21 @@ const ProjectCard = ({ project, index }) => {
           <div className="relative group flex justify-center items-center rounded-lg shadow-lg aspect-[16/9]">
             <div className="absolute top-0 bottom-0 w-full h-full z-10"></div>
             <div className="relative w-full h-full">
-              <Image
-                src={project.images[currentImage]} // Cycles through all images
-                fill
-                className="object-contain rounded-lg transition-opacity duration-1000"
-                alt={`Project ${index + 1}`}
-              />
+              <motion.div
+                key={currentImage}
+                initial={{ x: "100%" }}
+                animate={{ x: "0%" }}
+                exit={{ x: "-100%" }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className="absolute w-full h-full"
+              >
+                <Image
+                  src={project.images[currentImage]} // Cycles through all images
+                  fill
+                  className="object-contain rounded-lg transition-opacity duration-1000"
+                  alt={`Project ${index + 1}`}
+                />
+              </motion.div>
             </div>
           </div>
         </div>

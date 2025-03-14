@@ -73,23 +73,26 @@ const about = {
 const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My Experience",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, possimus sapiente eligendi quidem tempora velit autem repudiandae adipisci provident nesciunt sit commodi asperiores dolorem necessitatibus quas id soluta reiciendis totam.",
   items: [
     {
       company: "Clean Technology Hub",
-      position: "EXECUTIVE ASSISTANT TO THE CEO",
+      position: "Chief of Staff TO THE CEO",
       duration: "January, 2023 - Present",
     },
     {
-      company: "Clice Foundation",
-      position: "GENDER, COMMUNICATIONS AND SOCIAL MEDIA MANAGER",
+      company: "Energy Commission of Nigeria, Abuja",
+      position: "Human Resource Intern",
       duration: "June 2021 - April 2022",
     },
     {
-      company: "Edo State University",
-      position: "RESEARCH ASSISTANT",
-      duration: "",
+      company: "IJ Royal Interiors Limited, Abuja",
+      position: "Operations MANAGER",
+      duration: "July 2018 - 2019",
+    },
+    {
+      company: "Clice Foundation, Remote",
+      position: "Gender, Communications and Social Media Manager",
+      duration: " June 2021 - April 2022",
     },
   ],
 };
@@ -97,18 +100,11 @@ const experience = {
 const education = {
   icon: "/assets/resume/cap.svg",
   title: "My Education",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, possimus sapiente eligendi quidem tempora velit autem repudiandae adipisci provident nesciunt sit commodi asperiores dolorem necessitatibus quas id soluta reiciendis totam.",
   items: [
     {
       Instituion: "Edo State University",
-      Degree: "Bachelor of Arts(4.79 CGPA)",
+      Degree: "Bachelor of Arts (4.79 CGPA)",
       year: "2017 - 2020",
-    },
-    {
-      Instituion: "HIIT Academy",
-      Degree: "DIGITAL MARKETING",
-      year: "",
     },
   ],
 
@@ -254,9 +250,7 @@ const Resume = () => {
               <TabsContent value="education" className="w-full">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
                   <h3 className="text-4xl font-bold">{education.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                    {education.description}
-                  </p>
+
                   <ScrollArea className="h-[400px]">
                     <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                       {education.items.map((item, index) => {
