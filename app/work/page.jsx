@@ -23,6 +23,7 @@ const projects = [
       { name: "Email Management" },
       { name: "Calendar Management" },
       { name: "Travel Arrangements" },
+      { name: "Customer Service Support" },
     ],
     images: [
       "/assets/work/email1.jpeg",
@@ -96,16 +97,6 @@ const projects = [
     ],
     path: "/knowledge",
   },
-  {
-    num: "06",
-    category: "Customer Service Support",
-    title: "",
-    description:
-      "Ensuring your clients receive top-notch service through email, chat, and follow-ups",
-    Stack: [""],
-    images: ["/assets/work/project1.png", "/assets/work/project2.png"],
-    path: "/customer",
-  },
 ];
 
 const testimonials = [
@@ -131,25 +122,31 @@ const testimonials = [
 
 const Work = () => {
   const pathname = usePathname();
-  const [project, setProject] = useState(projects[0]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentImageIndexes, setCurrentImageIndexes] = useState(
+    projects.map(() => 0)
+  );
 
   useEffect(() => {
-    if (project.images.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex(
-          (prevIndex) => (prevIndex + 1) % project.images.length
-        );
-      }, 10000);
-      return () => clearInterval(interval);
-    }
-  }, [project]);
+    const intervals = projects.map((project, projectIndex) => {
+      if (project.images.length > 1) {
+        return setInterval(() => {
+          setCurrentImageIndexes((prevIndexes) => {
+            const newIndexes = [...prevIndexes];
+            newIndexes[projectIndex] =
+              (newIndexes[projectIndex] + 1) % project.images.length;
+            return newIndexes;
+          });
+        }, 10000);
+      }
+      return null;
+    });
 
-  const handleSlideChange = (swiper) => {
-    const currentIndex = swiper.realIndex;
-    setProject(projects[currentIndex]);
-    setCurrentImageIndex(0);
-  };
+    return () => {
+      intervals.forEach((interval) => {
+        if (interval) clearInterval(interval);
+      });
+    };
+  }, []);
 
   return (
     <>
@@ -172,82 +169,75 @@ const Work = () => {
             Projects
           </motion.h1>
           <div className="w-full h-[1px] bg-yellow-500 mb-8"></div>
-          <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-            <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-              <div className="flex flex-col gap-[30px] h-[50%]">
-                <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                  {project.num}
-                </div>
-                <h2 className="text-[25px] font-bold leading-none text-white capitalize text-wrap">
-                  {project.category}
-                </h2>
-                {Array.isArray(project.description) ? (
-                  <ul className="text-white/70 leading-relaxed list-disc pl-5">
-                    {project.description.map((item, i) => (
-                      <li key={i}>{item}</li>
+          <div className="flex flex-col gap-[30px]">
+            {projects.map((project, projectIndex) => (
+              <div
+                key={projectIndex}
+                className="flex flex-col xl:flex-row xl:gap-[30px]"
+              >
+                <div className="w-full xl:w-[50%] flex flex-col gap-[30px]">
+                  <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+                    {project.num}
+                  </div>
+                  <h2 className="text-[25px] font-bold leading-none text-white capitalize text-wrap">
+                    {project.category}
+                  </h2>
+                  {Array.isArray(project.description) ? (
+                    <ul className="text-white/70 leading-relaxed list-disc pl-5">
+                      {project.description.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-white/70 leading-relaxed">
+                      {project.description}
+                    </p>
+                  )}
+                  <ul className="flex gap-4">
+                    {project.Stack.map((item, i) => (
+                      <li key={i} className="text-xl text-accent text-wrap">
+                        {item.name}
+                        {i !== project.Stack.length - 1 && ","}
+                      </li>
                     ))}
                   </ul>
-                ) : (
-                  <p className="text-white/70 leading-relaxed">
-                    {project.description}
-                  </p>
-                )}{" "}
-                <ul className="flex gap-4">
-                  {project.Stack.map((item, index) => (
-                    <li key={index} className="text-xl text-accent text-wrap">
-                      {item.name}
-                      {index !== project.Stack.length - 1 && ","}
-                    </li>
-                  ))}
-                </ul>
-                <div className="border border-white/40"></div>
-                <div className="flex items-center gap-4">
-                  <Link href={project.path}>
-                    <Button className="outline-2 hover:bg-white">
-                      {"Check More"}
-                    </Button>
-                  </Link>
+                  <div className="border border-white/40"></div>
+                  <div className="flex items-center gap-4">
+                    <Link href={project.path}>
+                      <Button className="outline-2 hover:bg-white">
+                        Check More
+                      </Button>
+                    </Link>
+                  </div>
+                  <div className="w-full h-[1px] bg-yellow-500 mb-10"></div>
+                </div>
+
+                <div className="w-full xl:w-[50%]">
+                  <div className="relative group flex justify-start items-start rounded-lg shadow-lg w-full aspect-[16/9] overflow-hidden">
+                    <motion.div
+                      key={currentImageIndexes[projectIndex]}
+                      initial={{ x: "100%" }}
+                      animate={{ x: "0%" }}
+                      exit={{ x: "-100%" }}
+                      transition={{ duration: 1, ease: "easeInOut" }}
+                      className="absolute w-full h-full"
+                    >
+                      <Image
+                        src={project.images[currentImageIndexes[projectIndex]]}
+                        fill
+                        className="object-contain rounded-lg"
+                        alt={`Project Image ${
+                          currentImageIndexes[projectIndex] + 1
+                        }`}
+                      />
+                    </motion.div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="w-full xl:w-[50%]">
-              <Swiper
-                spaceBetween={30}
-                slidesPerView={1}
-                navigation={{ clickable: true }}
-                pagination={{ clickable: true }}
-                modules={[Navigation, Pagination]}
-                className="xl:h-[520px] mb-5 text-accent"
-                onSlideChange={handleSlideChange}
-              >
-                {projects.map((project, index) => (
-                  <SwiperSlide key={index} className="w-full">
-                    {/* <div className="absolute top-0 bottom-0 w-full h-full z-10"></div> */}
-                    <div className="relative group flex justify-start items-start rounded-lg shadow-lg w-full aspect-[16/9] overflow-hidden">
-                      <motion.div
-                        key={currentImageIndex}
-                        initial={{ x: "100%" }}
-                        animate={{ x: "0%" }}
-                        exit={{ x: "-100%" }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
-                        className="absolute w-full h-full"
-                      >
-                        <Image
-                          src={project.images[currentImageIndex]}
-                          fill
-                          className="object-contain rounded-lg"
-                          alt={`Project Image ${currentImageIndex + 1}`}
-                        />
-                      </motion.div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
+            ))}
           </div>
         </div>
       </motion.section>
-
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

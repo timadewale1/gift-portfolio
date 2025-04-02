@@ -75,7 +75,7 @@ const experience = {
   title: "My Experience",
   items: [
     {
-      company: "Clean Technology Hub",
+      company: "Clean Technology Hub, Abuja, Hybrid",
       position: "Chief of Staff TO THE CEO",
       duration: "January, 2023 - Present",
     },
@@ -123,6 +123,11 @@ const education = {
       title: "Certificate in Digital Marketing",
       pdfUrl: "/certificates/certificate3.pdf",
       image: "/certificates/certificate3.png",
+    },
+    {
+      title: "Workflow Specialist",
+      pdfUrl: "/certificates/certificate4.pdf",
+      image: "/certificates/certificate4.png",
     },
   ],
 };
@@ -311,26 +316,28 @@ const Resume = () => {
                     </p>
                   </div>
                   <ScrollArea className="h-[400px]">
-                    <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                    <ul className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-6 gap-3 xl:gap-[15px]">
                       {skills.skillsList.map((skill, index) => {
                         if (!skill.icon) return null; // Ensure the icon is valid before rendering
                         const IconComponent = skill.icon;
                         return (
                           <li
                             key={index}
-                            className="flex flex-col items-center gap-2"
+                            className="flex flex-col items-center gap-1"
                           >
                             <TooltipProvider delayDuration={100}>
                               <Tooltip>
-                                <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex flex-col justify-center items-center group">
-                                  <IconComponent className="text-6xl text-accent group-hover:text-yellow-500 transition-all duration-300" />
+                                <TooltipTrigger className="w-[70px] h-[60px] bg-[#232329] rounded-lg flex flex-col justify-center items-center group">
+                                  <IconComponent className="text-4xl text-accent group-hover:text-yellow-500 transition-all duration-300" />
                                 </TooltipTrigger>
                                 <TooltipContent>
-                                  <p className="capitalize">{skill.name}</p>
+                                  <p className="capitalize text-xs">
+                                    {skill.name}
+                                  </p>
                                 </TooltipContent>
                               </Tooltip>
                             </TooltipProvider>
-                            <p className="text-accent text-lg font-semibold">
+                            <p className="text-white text-sm font-medium text-center">
                               {skill.name}
                             </p>
                           </li>

@@ -21,29 +21,23 @@ const services = [
       "Conducting thorough research, writing reports,  data entry, creating presentations, and crafting compelling storytelling and content.",
     path: "/research",
   },
+
   {
     num: "03",
-    title: "Customer Service Support",
-    description:
-      "Ensuring your clients receive top-notch service through email, chat, and follow-ups",
-    path: "/customer",
-  },
-  {
-    num: "04",
     title: "Project Management",
     description:
       "Coordinating tasks, tracking deadlines, and ensuring seamless execution of your projects.",
     path: "/project",
   },
   {
-    num: "05",
+    num: "04",
     title: "Invoice, Memo Tracking and Data Analaysis",
     description:
       "Invoice creation, memo preparation, financial tracking, and data analysis.",
     path: "/invoice",
   },
   {
-    num: "06",
+    num: "05",
     title: "Knowledge Management and IT Support",
     description: [
       "Managing email seats, user accounts, and access control.",
