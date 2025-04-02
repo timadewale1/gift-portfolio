@@ -23,7 +23,6 @@ const projects = [
       { name: "Email Management" },
       { name: "Calendar Management" },
       { name: "Travel Arrangements" },
-      { name: "Customer Service Support" },
     ],
     images: [
       "/assets/work/email1.jpeg",
