@@ -170,69 +170,72 @@ const Work = () => {
           <div className="w-full h-[1px] bg-yellow-500 mb-8"></div>
           <div className="flex flex-col gap-[30px]">
             {projects.map((project, projectIndex) => (
-              <div
-                key={projectIndex}
-                className="flex flex-col xl:flex-row xl:gap-[30px]"
-              >
-                <div className="w-full xl:w-[50%] flex flex-col gap-[30px]">
-                  <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
-                    {project.num}
-                  </div>
-                  <h2 className="text-[25px] font-bold leading-none text-white capitalize text-wrap">
-                    {project.category}
-                  </h2>
-                  {Array.isArray(project.description) ? (
-                    <ul className="text-white/70 leading-relaxed list-disc pl-5">
-                      {project.description.map((item, i) => (
-                        <li key={i}>{item}</li>
+              <React.Fragment key={projectIndex}>
+                <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+                  <div className="w-full xl:w-[50%] flex flex-col gap-[30px]">
+                    <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+                      {project.num}
+                    </div>
+                    <h2 className="text-[25px] font-bold leading-none text-white capitalize text-wrap">
+                      {project.category}
+                    </h2>
+                    {Array.isArray(project.description) ? (
+                      <ul className="text-white/70 leading-relaxed list-disc pl-5">
+                        {project.description.map((item, i) => (
+                          <li key={i}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-white/70 leading-relaxed">
+                        {project.description}
+                      </p>
+                    )}
+                    <ul className="flex gap-4">
+                      {project.Stack.map((item, i) => (
+                        <li key={i} className="text-xl text-accent text-wrap">
+                          {item.name}
+                          {i !== project.Stack.length - 1 && ","}
+                        </li>
                       ))}
                     </ul>
-                  ) : (
-                    <p className="text-white/70 leading-relaxed">
-                      {project.description}
-                    </p>
-                  )}
-                  <ul className="flex gap-4">
-                    {project.Stack.map((item, i) => (
-                      <li key={i} className="text-xl text-accent text-wrap">
-                        {item.name}
-                        {i !== project.Stack.length - 1 && ","}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="border border-white/40"></div>
-                  <div className="flex items-center gap-4">
-                    <Link href={project.path}>
-                      <Button className="outline-2 hover:bg-white">
-                        Check More
-                      </Button>
-                    </Link>
+                    <div className="border border-white/40"></div>
+                    <div className="flex items-center gap-4 mb-5">
+                      <Link href={project.path}>
+                        <Button className="outline-2 hover:bg-white">
+                          Check More
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
-                  <div className="w-full h-[1px] bg-yellow-500 mb-10"></div>
+
+                  <div className="w-full xl:w-[50%]">
+                    <div className="relative group flex justify-start items-start rounded-lg shadow-lg w-full aspect-[16/9] overflow-hidden">
+                      <motion.div
+                        key={currentImageIndexes[projectIndex]}
+                        initial={{ x: "100%" }}
+                        animate={{ x: "0%" }}
+                        exit={{ x: "-100%" }}
+                        transition={{ duration: 1, ease: "easeInOut" }}
+                        className="absolute w-full h-full"
+                      >
+                        <Image
+                          src={
+                            project.images[currentImageIndexes[projectIndex]]
+                          }
+                          fill
+                          className="object-contain rounded-lg"
+                          alt={`Project Image ${
+                            currentImageIndexes[projectIndex] + 1
+                          }`}
+                        />
+                      </motion.div>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="w-full xl:w-[50%]">
-                  <div className="relative group flex justify-start items-start rounded-lg shadow-lg w-full aspect-[16/9] overflow-hidden">
-                    <motion.div
-                      key={currentImageIndexes[projectIndex]}
-                      initial={{ x: "100%" }}
-                      animate={{ x: "0%" }}
-                      exit={{ x: "-100%" }}
-                      transition={{ duration: 1, ease: "easeInOut" }}
-                      className="absolute w-full h-full"
-                    >
-                      <Image
-                        src={project.images[currentImageIndexes[projectIndex]]}
-                        fill
-                        className="object-contain rounded-lg"
-                        alt={`Project Image ${
-                          currentImageIndexes[projectIndex] + 1
-                        }`}
-                      />
-                    </motion.div>
-                  </div>
-                </div>
-              </div>
+                {/* Thin Gold Line */}
+                <div className="w-full h-[1px] bg-yellow-500 mt-5"></div>
+              </React.Fragment>
             ))}
           </div>
         </div>
