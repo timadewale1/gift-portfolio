@@ -89,7 +89,6 @@ const experience = {
       position: "Human Resource Intern",
       duration: "June 2021 - April 2022",
     },
-
     {
       company: "Clice Foundation, Remote",
       position: "Gender, Communications and Social Media Manager",
