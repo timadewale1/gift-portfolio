@@ -80,15 +80,16 @@ const experience = {
       duration: "January, 2023 - Present",
     },
     {
-      company: "Energy Commission of Nigeria, Abuja",
-      position: "Human Resource Intern",
-      duration: "June 2021 - April 2022",
-    },
-    {
       company: "IJ Royal Interiors Limited, Abuja",
       position: "Operations MANAGER",
       duration: "July 2018 - 2019",
     },
+    {
+      company: "Energy Commission of Nigeria, Abuja",
+      position: "Human Resource Intern",
+      duration: "June 2021 - April 2022",
+    },
+
     {
       company: "Clice Foundation, Remote",
       position: "Gender, Communications and Social Media Manager",
